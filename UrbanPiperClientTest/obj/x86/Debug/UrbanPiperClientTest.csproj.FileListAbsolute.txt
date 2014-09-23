@@ -1,0 +1,7 @@
+c:\documents and settings\owner\my documents\visual studio 2010\Projects\UrbanPiperClient\UrbanPiperClientTest\bin\Debug\UrbanPiperClientTest.exe
+c:\documents and settings\owner\my documents\visual studio 2010\Projects\UrbanPiperClient\UrbanPiperClientTest\bin\Debug\UrbanPiperClientTest.pdb
+c:\documents and settings\owner\my documents\visual studio 2010\Projects\UrbanPiperClient\UrbanPiperClientTest\bin\Debug\UrbanPiperClient.dll
+c:\documents and settings\owner\my documents\visual studio 2010\Projects\UrbanPiperClient\UrbanPiperClientTest\bin\Debug\UrbanPiperClient.pdb
+c:\documents and settings\owner\my documents\visual studio 2010\Projects\UrbanPiperClient\UrbanPiperClientTest\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\documents and settings\owner\my documents\visual studio 2010\Projects\UrbanPiperClient\UrbanPiperClientTest\obj\x86\Debug\UrbanPiperClientTest.exe
+c:\documents and settings\owner\my documents\visual studio 2010\Projects\UrbanPiperClient\UrbanPiperClientTest\obj\x86\Debug\UrbanPiperClientTest.pdb
