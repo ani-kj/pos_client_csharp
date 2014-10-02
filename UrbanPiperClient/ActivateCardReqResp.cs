@@ -41,7 +41,7 @@ namespace UrbanPiper.Model
     }
 
     [DataContract]
-    public class ActivateCardResponse : JsonResponse
+    public class ActivateCardResponse : JsonDataContractObject
     {
         [DataMember(Name = "success")]
         public string Success { get; set; }

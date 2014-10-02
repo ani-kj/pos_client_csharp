@@ -41,7 +41,7 @@ namespace UrbanPiper.Model
     }
 
     [DataContract]
-    public class UpdateBalanceResponse : JsonResponse
+    public class UpdateBalanceResponse : JsonDataContractObject
     {
         [DataMember(Name = "success")]
         public string Success { get; set; }

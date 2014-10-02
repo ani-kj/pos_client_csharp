@@ -9,18 +9,20 @@ namespace UrbanPiper.Model
 {
     public class AddPurchasePointsRequest
     {
-        public AddPurchasePointsRequest(double purchaseAmount, string userSearchInfo, string cardNumber, string customerPhone)
+        public AddPurchasePointsRequest(double purchaseAmount, string userSearchInfo, string cardNumber, string customerPhone, SkuItem[] skuItems)
         {
             PurchaseAmount = purchaseAmount;
             UserSearchInfo = userSearchInfo;
             CardNumber = cardNumber;
             CustomerPhone = customerPhone;
+            SkuItems = skuItems;
         }
 
         public double PurchaseAmount { get; set; }
         public string UserSearchInfo { get; set; }
         public string CardNumber { get; set; }
         public string CustomerPhone { get; set; }
+        public SkuItem[] SkuItems { get; set; }
 
         internal string GetQueryStringParams()
         {
@@ -36,10 +38,25 @@ namespace UrbanPiper.Model
 
             return sb.ToString();
         }
+
+        internal string GetPostData()
+        {
+            if (SkuItems == null) return string.Empty;
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("{\"sku_data\":[");
+            for (int i = 0; i < SkuItems.Length; i++)
+            {
+                sb.Append(SkuItems[i].ToJson());
+                if (i < SkuItems.Length - 1) sb.Append(",");
+            }
+            sb.Append("]}");
+            return sb.ToString();
+        }
     }
 
     [DataContract]
-    public class AddPurchasePointsResponse : JsonResponse
+    public class AddPurchasePointsResponse : JsonDataContractObject
     {
         [DataMember(Name = "success")]
         public string Success { get; set; }

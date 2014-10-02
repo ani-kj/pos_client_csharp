@@ -6,7 +6,7 @@ using System.IO;
 namespace UrbanPiper
 {
     [DataContract]
-    public class JsonResponse
+    public class JsonDataContractObject
     {
         public string ToJson()
         {

@@ -1,0 +1,5 @@
+C:\Documents and Settings\Owner\my documents\visual studio 2010\Projects\UrbanPiperClient\UrbanPiperClient\bin\Release\UrbanPiperClient.dll
+C:\Documents and Settings\Owner\my documents\visual studio 2010\Projects\UrbanPiperClient\UrbanPiperClient\bin\Release\UrbanPiperClient.pdb
+C:\Documents and Settings\Owner\my documents\visual studio 2010\Projects\UrbanPiperClient\UrbanPiperClient\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Owner\my documents\visual studio 2010\Projects\UrbanPiperClient\UrbanPiperClient\obj\Release\UrbanPiperClient.dll
+C:\Documents and Settings\Owner\my documents\visual studio 2010\Projects\UrbanPiperClient\UrbanPiperClient\obj\Release\UrbanPiperClient.pdb

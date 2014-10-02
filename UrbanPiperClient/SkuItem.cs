@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 namespace UrbanPiper.Model
 {
     [DataContract]
-    class SkuItem
+    public class SkuItem : JsonDataContractObject
     {
         public SkuItem(string skuCode, string skuDesc, int qty, int lineTotal)
         {

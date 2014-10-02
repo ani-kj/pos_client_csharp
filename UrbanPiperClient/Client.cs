@@ -19,7 +19,14 @@ namespace UrbanPiper
 
         public AddPurchasePointsResponse AddPurchasePoints(AddPurchasePointsRequest apr)
         {
-            return MakeGETRequest<AddPurchasePointsResponse>(URL_ADD_PURCHASE, apr.GetQueryStringParams());
+            if (apr.SkuItems == null)
+            {
+                return MakeGETRequest<AddPurchasePointsResponse>(URL_ADD_PURCHASE, apr.GetQueryStringParams());
+            }
+            else
+            {
+                return MakePOSTRequest<AddPurchasePointsResponse>(URL_ADD_PURCHASE, apr.GetQueryStringParams(), apr.GetPostData());
+            }
         }
 
         public ActivateCardResponse ActivateCard(ActivateCardRequest car)
@@ -44,9 +51,35 @@ namespace UrbanPiper
             authInfo = Convert.ToBase64String(Encoding.Default.GetBytes(authInfo));
             req.Headers["Authorization"] = "Basic " + authInfo;
 
-            HttpWebResponse httpResponse = (HttpWebResponse)req.GetResponse();
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(T));
-            return (T)ser.ReadObject(httpResponse.GetResponseStream());
+            using (HttpWebResponse httpResponse = (HttpWebResponse)req.GetResponse())
+            {
+                DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(T));
+                return (T)ser.ReadObject(httpResponse.GetResponseStream());
+            }
+        }
+
+        private T MakePOSTRequest<T>(string baseUrl, String queryString, String postData)
+        {
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(
+                baseUrl + queryString);
+            req.Method = "POST";
+            
+            Console.WriteLine(baseUrl + queryString);
+            
+            string authInfo = string.Format("{0}:{1}", USERNAME, PASSWD);
+            authInfo = Convert.ToBase64String(Encoding.Default.GetBytes(authInfo));
+            req.Headers["Authorization"] = "Basic " + authInfo;
+
+            byte[] postDataBytes = Encoding.UTF8.GetBytes(postData);
+            req.ContentLength = postDataBytes.Length;
+            req.GetRequestStream().Write(postDataBytes, 0, postDataBytes.Length);
+            req.GetRequestStream().Close();
+
+            using (HttpWebResponse httpResponse = (HttpWebResponse)req.GetResponse())
+            {
+                DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(T));
+                return (T)ser.ReadObject(httpResponse.GetResponseStream());
+            }
         }
 
     }
